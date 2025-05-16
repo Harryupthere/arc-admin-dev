@@ -1,6 +1,6 @@
 @use '../../assest/scss/abstract/mixins' as *;
 .dashboardheader{
-    padding: 10px 30px;
+    padding: 18px 30px;
     border: 1px solid #DFE9F3;
     background: var(--white-color);
     @include media_768{

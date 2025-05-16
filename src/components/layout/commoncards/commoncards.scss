@@ -35,22 +35,16 @@
                     font-size: var(--font_16);
                     font-weight: 600;
                     color: #202224;
-                    @include media_1600{
-                        font-size: var(--font_14);
-                    }
                     @include media_1280{
-                      font-size: var(--font_12);
+                      font-size: var(--font_14);
                      }
                 }
 
                 .card_data {
                     font-weight: 700;
                     font-size: var(--font_28);
-                    @include media_1600{
-                        font-size: var(--font_20);
-                    }
                     @include media_1280{
-                        font-size: var(--font_16);
+                        font-size: var(--font_20);
                      }
                 }
             }

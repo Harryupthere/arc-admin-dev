@@ -4,7 +4,7 @@ const TopProducts = () => {
   return (
     <div className='top-product-table'>
       <div className='main_heading'>
-        <h2>Top Account Size</h2>
+        <h2>Top Productss</h2>
       </div>
       <div className='data-table-wrapped'>
         <div className='data-table-container'>
@@ -19,35 +19,37 @@ const TopProducts = () => {
             <tbody>
               <tr>
                 <td>01</td>
-                <td>8k</td>
-                <td>9000</td>
+                <td>M10 EarBuds Bluetooth Earphone Bluetooth v5.3 TWS Stereo Airpods Gaming Support Delayless</td>
+                <td>3,553</td>
               </tr>
               <tr>
                 <td>02</td>
-                <td>15k</td>
-                <td>6732</td>
+                <td>M10 EarBuds Bluetooth Earphone Bluetooth v5.3 TWS Stereo Airpods Gaming Support Delayless</td>
+                <td>3,553</td>
               </tr><tr>
                 <td>03</td>
-                <td>25k</td>
-                <td>1722</td>
+                <td>M10 EarBuds Bluetooth Earphone Bluetooth v5.3 TWS Stereo Airpods Gaming Support Delayless</td>
+                <td>3,553</td>
+              </tr><tr>
+                <td>04</td>
+                <td>M10 EarBuds Bluetooth Earphone Bluetooth v5.3 TWS Stereo Airpods Gaming Support Delayless</td>
+                <td>3,553</td>
               </tr>
               <tr>
                 <td>05</td>
-                <td>50k</td>
-                <td>8478</td>
+                <td>M10 EarBuds Bluetooth Earphone Bluetooth v5.3 TWS Stereo Airpods Gaming Support Delayless</td>
+                <td>3,553</td>
               </tr>
               <tr>
                 <td>05</td>
-                <td>100k</td>
-                <td>8167</td>
+                <td>M10 EarBuds Bluetooth Earphone Bluetooth v5.3 TWS Stereo Airpods Gaming Support Delayless</td>
+                <td>3,553</td>
               </tr>
               <tr>
-              <td>05</td>
-                <td>Instant 10k</td>
-                <td>9261</td>
+                <td>05</td>
+                <td>M10 EarBuds Bluetooth Earphone Bluetooth v5.3 TWS Stereo Airpods Gaming Support Delayless</td>
+                <td>3,553</td>
               </tr>
-              
-               
             </tbody>
           </table>
         </div>

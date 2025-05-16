@@ -4,12 +4,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './assest/scss/main.scss'
 import 'react-modern-drawer/dist/index.css'
+import { Provider } from 'react-redux'
+import store from "./redux/store";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+          <Provider store={store}>
     <App />
+    </Provider>
   </React.StrictMode>
 );
 

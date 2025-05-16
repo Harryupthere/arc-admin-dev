@@ -32,7 +32,7 @@ body {
         font-size: var(--font_12);
     }
     a{
-        color: var(--theme-blue);
+        color: var(--theme-purple);
         text-decoration: none;
         &:hover{
             text-decoration: none;
@@ -92,7 +92,7 @@ input,textarea {
     }
 }
 .btn_primary{
-    background-color: var(--theme-blue);
+    background-color: var(--theme-purple);
     font-weight: 700;
     font-family: var(--Quicksand);
     line-height: 20px;
@@ -118,10 +118,7 @@ input,textarea {
         aside{
             min-width: 200px;
             width: 200px;
-            @include media_1600{
-                min-width: 170px;
-                width: 170px;
-              }
+  
             &.ps-collapsed {
                 width: 80px;
                 min-width: 80px;
@@ -129,7 +126,18 @@ input,textarea {
         }
     }
     .dashbord-page-content{
-        width: 100%;
+        &.minus200{
+            width: calc( 100% - 200px);
+            @include media_1024{
+                width: 100%;
+            }
+        }
+        &.minus80{
+            width: calc( 100% - 80px);
+            @include media_1024{
+                width: 100%;
+            }
+        }
     }
 }
 

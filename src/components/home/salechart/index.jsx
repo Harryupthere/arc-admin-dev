@@ -90,8 +90,8 @@ const SaleChart = () => {
             <div className="salechart theme-card">
                 <div className="header">
                     <div className="price-header">
-                        <h2 className="price">USD 3,98,982</h2>
-                        <h3 className="grey_label">Annual Sales</h3>
+                        <h2 className="price">Rs. 199,248</h2>
+                        <h3 className="grey_label">Gross Sales</h3>
                     </div>
                     <div className="date">
                         <h3 className="grey_label">Yesterday</h3>
