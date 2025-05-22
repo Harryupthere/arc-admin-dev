@@ -3,9 +3,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import useApiRequest from "../../hooks/useApiRequest";
 import { API_ENDPOINTS } from "../../constants/endPoints";
 import { errorMsg, successMsg } from "../../utils/customFn";
-import "./TradeForm.scss";
+import "./permissions.scss";
 
-const TradingAccountTypesForm = () => {
+const PermissionsForm = () => {
   const navigate = useNavigate();
   const { fetchData } = useApiRequest();
   const { id } = useParams();
@@ -13,33 +13,25 @@ const TradingAccountTypesForm = () => {
 
   const [formData, setFormData] = useState({
     name: "",
-    description: "",
-    icon: "",
-    max_profit: "",
-    max_loss: "",
-    min_profit: "",
-    min_loss: "",
+    module: "",
+    status: ""
   });
 
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
-    if (isEditMode) getAccountTypeDetails();
+    if (isEditMode) getDetailsById();
   }, [id]);
 
-  const getAccountTypeDetails = async () => {
+  const getDetailsById = async () => {
     try {
-      const res = await fetchData(`${API_ENDPOINTS.getTradingAccountTypes}?id=${id}`, navigate, "GET");
+      const res = await fetchData(`${API_ENDPOINTS.getPermissions}?id=${id}`, navigate, "GET");
       if (res?.success) {
         const data = res.data[0];
         setFormData({
           name: data.name || "",
-          description: data.description || "",
-          icon: data.icon || "",
-          max_profit: data.max_profit || "",
-          max_loss: data.max_loss || "",
-          min_profit: data.min_profit || "",
-          min_loss: data.min_loss || "",
+          module: data.module || "",
+          status: data.status || "",
         });
       }
     } catch (error) {
@@ -53,15 +45,13 @@ const TradingAccountTypesForm = () => {
   };
 
   const validate = () => {
-    const requiredFields = ["name", "description", "icon", "max_profit", "max_loss", "min_profit", "min_loss"];
+    const requiredFields = isEditMode?["name", "module", "status"]:["name", "module"];
     const newErrors = {};
 
     requiredFields.forEach((field) => {
       if (!formData[field]) {
         newErrors[field] = "This field is required";
-      } else if (!["name", "description", "icon"].includes(field) && isNaN(formData[field])) {
-        newErrors[field] = "Must be a number";
-      }
+      } 
     });
 
     setErrors(newErrors);
@@ -73,23 +63,19 @@ const TradingAccountTypesForm = () => {
     if (!validate()) return;
 
     const payload = {
-      ...formData,
-      max_profit: parseFloat(formData.max_profit),
-      max_loss: parseFloat(formData.max_loss),
-      min_profit: parseFloat(formData.min_profit),
-      min_loss: parseFloat(formData.min_loss),
+      ...formData
     };
 
     const endpoint = isEditMode
-      ? `${API_ENDPOINTS.updateTradingAccountType}/${id}`
-      : API_ENDPOINTS.createTradingAccountType;
+      ? `${API_ENDPOINTS.updatePermission}/${id}`
+      : API_ENDPOINTS.createPermisson;
     const method = isEditMode ? "PUT" : "POST";
 
     try {
       const res = await fetchData(endpoint, navigate, method, payload);
       if (res?.success) {
-        successMsg(isEditMode ? "Account Type updated successfully!" : "Account Type created successfully!");
-        navigate(`${process.env.REACT_APP_BASE_URL}trading-account-types`);
+        successMsg(res.message);
+        navigate(`${process.env.REACT_APP_BASE_URL}permissions`);
       } else {
         errorMsg(res?.message || "Something went wrong.");
       }
@@ -102,21 +88,37 @@ const TradingAccountTypesForm = () => {
   return (
     <div className="trade-form-container">
       <div className="trade-form-card">
-        <h2>{isEditMode ? "Edit Trading Account Type" : "Add Trading Account Type"}</h2>
+        <h2>{isEditMode ? "Edit Permission" : "Add Permission"}</h2>
         <form onSubmit={handleSubmit} className="trade-form-grid">
-          {["name", "description", "icon", "max_profit", "max_loss", "min_profit", "min_loss"].map((field) => (
-            <div key={field} className="form-group">
-              <label>{field.replace("_", " ").toUpperCase()}</label>
-              <input
-                type="text"
-                name={field}
-                value={formData[field]}
-                onChange={handleChange}
-                className={errors[field] ? "input-error" : ""}
-              />
-              {errors[field] && <span className="error-text">{errors[field]}</span>}
-            </div>
-          ))}
+    {["name", "module", "status"].map((field) => (
+  <div key={field} className="form-group">
+    <label>{field.replace("_", " ").toUpperCase()}</label>
+    
+    {field === "status" ? (
+      <select
+        name={field}
+        value={formData[field]}
+        onChange={handleChange}
+        className={errors[field] ? "input-error" : ""}
+      >
+        <option value="">Select Status</option>
+        <option value="active">Active</option>
+        <option value="inactive">Inactive</option>
+      </select>
+    ) : (
+      <input
+        type="text"
+        name={field}
+        value={formData[field]}
+        onChange={handleChange}
+        className={errors[field] ? "input-error" : ""}
+      />
+    )}
+    
+    {errors[field] && <span className="error-text">{errors[field]}</span>}
+  </div>
+))}
+
 
           <div className="form-actions full-width">
             <button type="submit" className="submit-btn">
@@ -129,4 +131,4 @@ const TradingAccountTypesForm = () => {
   );
 };
 
-export default TradingAccountTypesForm;
+export default PermissionsForm;

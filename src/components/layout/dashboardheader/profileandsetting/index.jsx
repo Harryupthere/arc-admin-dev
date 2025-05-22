@@ -12,11 +12,12 @@ const ProfileAndSetting = () => {
     const dispatch = useDispatch()
     const {username}=useSelector((state) => state.auth)
 
+
     const handleLogout=async(e)=>{
         e.preventDefault();
 
               dispatch(logout());
-      navigate("/login");
+      navigate(`${process.env.REACT_APP_BASE_URL}login`);
     }
 
     return (

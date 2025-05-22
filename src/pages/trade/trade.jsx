@@ -110,7 +110,7 @@ const TradeForm = () => {
       const res = await fetchData(endpoint, navigate, method, payload);
       if (res?.success) {
         successMsg(isEditMode ? "Trade updated successfully!" : "Trade created successfully!");
-        navigate("/trade-list");
+        navigate(`${process.env.REACT_APP_BASE_URL}trade-list`);
       }else{
         errorMsg(res?.message)
       }

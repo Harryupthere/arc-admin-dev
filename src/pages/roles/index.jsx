@@ -5,7 +5,7 @@ import { API_ENDPOINTS } from "../../constants/endPoints";
 import { useNavigate } from 'react-router-dom';
 import ReactDatatable from '@ashvin27/react-datatable';
 
-const TradesList = () => {
+const Roles = () => {
     const { fetchData } = useApiRequest()
     const navigate = useNavigate()
     const [list, setList] = useState([])
@@ -16,7 +16,7 @@ const TradesList = () => {
 
     const callApi = async () => {
         try {
-            const tradeRes = await fetchData(API_ENDPOINTS.getTrades, navigate, "GET", {});
+            const tradeRes = await fetchData(API_ENDPOINTS.getRoles, navigate, "GET", {});
             if (tradeRes?.success) {
                 setList(tradeRes?.data)
             }
@@ -31,38 +31,45 @@ const TradesList = () => {
             cell: (item, row) => (<>{row + 1}</>)
         },
         {
-            key: "symbol",
-            text: "Symbol",
+            key: "name",
+            text: "Name",
             sortable: true,
         },
         {
-            key: "lot_size",
-            text: "Lot Size",
+            key: "description",
+            text: "Description",
         },
         {
-            key: "stop_loss",
-            text: "Stop Loss",
+            key: "created_at",
+            text: "Created At",
         },
         {
-            key: "take_profit",
-            text: "Take Profit",
+            key: "updated_at",
+            text: "Updated At",
         },
-        {
-            key: "pips",
-            text: "Pips",
+                {
+            key: "status",
+            text: "Status",
         },
-        {
-            key: "trade_date",
-            text: "Trade Date",
-        },
-        {
-            key: "trading_account_type_name",
-            text: "Account Type",
+            {
+            text: 'Permissions',
+            cell: (item) => {
+                return (<>
+                    <ul style={{ paddingLeft: '16px', margin: 0 }}>
+                        {item?.permissions?.length > 0 ? (
+                            item.permissions.map((permission, idx) => (
+                                <li key={idx}>{permission.name} ({permission.module})</li>
+                            ))
+                        ) : (
+                            <li>-</li>
+                        )}
+                    </ul></>)
+            }
         },
         {
             text: 'Actions',
             cell: (item) => (
-                <button onClick={() => navigate(`${process.env.REACT_APP_BASE_URL}edit-trade/${item.id}`)}>Edit</button>
+                <button onClick={() => navigate(`${process.env.REACT_APP_BASE_URL}edit-role/${item.id}`)}>Edit</button>
             )
         },
     ]
@@ -81,10 +88,10 @@ const TradesList = () => {
 
     return (
         <>
-            <DashboardHeader heading="Trades" />
+            <DashboardHeader heading="Roles" />
             <div className='main'>
                 <div className='d-flex justify-content-end mb-3'>
-                    <button className='btn btn-primary' onClick={() => navigate('/add-trade')}>Add Trade</button>
+                    <button className='btn btn-primary' onClick={() => navigate(`${process.env.REACT_APP_BASE_URL}add-role`)}>Add Roles</button>
                 </div>
                 <div className='customer-table'>
                     <div className='data-table-wrapped'>
@@ -102,4 +109,4 @@ const TradesList = () => {
     )
 }
 
-export default TradesList
+export default Roles

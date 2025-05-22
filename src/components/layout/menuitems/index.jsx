@@ -7,48 +7,91 @@ import ProfileAndSetting from "../dashboardheader/profileandsetting";
 import { FileIcon, HomeIcon, NotificationsIcon, SettingIcon, UserIcon, WalletFilled } from "../../../icons/icons";
 
 const MenuItems = () => {
+  const baseUrl = process.env.REACT_APP_BASE_URL
+
   const location = useLocation();
   const navigate = useNavigate()
   const SidebarItems = [
     {
       name: 'Home',
-      link: '/',
+      link: `${baseUrl}`,
       imagepath: <HomeIcon />
     },
-        {
+    {
       name: 'Admin List',
-      link: '/admin-list',
+      link: `${baseUrl}admin-list`,
       imagepath: <HomeIcon />
     },
-        {
+    {
       name: 'Trades',
-      link: '/trade-list',
+      link: `${baseUrl}trade-list`,
+      imagepath: <HomeIcon />
+    },
+
+    {
+      name: 'Trading Account Type',
+      link: `${baseUrl}trading-account-types`,
+      imagepath: <HomeIcon />
+    },
+
+    {
+      name: 'Roles',
+      link: `${baseUrl}roles`,
+      imagepath: <HomeIcon />
+    },
+
+    {
+      name: 'Permissions',
+      link: `${baseUrl}permissions`,
+      imagepath: <HomeIcon />
+    },
+
+    {
+      name: 'Payment-Types',
+      link: `${baseUrl}payment-types`,
+      imagepath: <HomeIcon />
+    },
+
+        {
+      name: 'Two Phases Plans',
+      link: `${baseUrl}two-phases`,
+      imagepath: <HomeIcon />
+    },
+
+        {
+      name: 'Instant Funding Plans',
+      link: `${baseUrl}instant-funding`,
       imagepath: <HomeIcon />
     },
 
             {
-      name: 'Trading Account Type',
-      link: '/trading-account-types',
+      name: 'Add Ons',
+      link: `${baseUrl}add-ons`,
+      imagepath: <HomeIcon />
+    },
+            {
+      name: 'Coupon Codes',
+      link: `${baseUrl}coupon-codes`,
       imagepath: <HomeIcon />
     },
     {
       name: 'Affiliate Lounge',
-      link: '/lounge',
+      link: `${baseUrl}lounge`,
       imagepath: <FileIcon />
     },
     {
       name: 'User List',
-      link: '/users',
+      link: `${baseUrl}users`,
       imagepath: <UserIcon />
     },
     {
       name: 'Wallet',
-      link: '/wallet',
+      link: `${baseUrl}wallet`,
       imagepath: <WalletFilled />
     },
     {
       name: 'Updates',
-      link: '/updates',
+      link: `${baseUrl}updates`,
       imagepath: <NotificationsIcon />
     },
 
@@ -81,7 +124,7 @@ const MenuItems = () => {
             <SubMenu
               key={index}
               className={`${isActive ? 'active' : ''} main-menu-tab`}
-              onClick={()=>navigate(item.link)}
+              onClick={() => navigate(item.link)}
               label={
                 <div className="sidebar_label">
                   <div className="icon">

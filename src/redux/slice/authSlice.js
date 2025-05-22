@@ -14,7 +14,7 @@ const initialState = {
   isAuthenticated: isAuthenticated,
   auth_token: localStorage.getItem("auth_token") || null,  // 👈 new line
   vrfyOtpEmail: null,
-  username:""
+  username:localStorage.getItem("username") || null
 };
 
 

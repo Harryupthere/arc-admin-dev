@@ -78,7 +78,7 @@ const TradingAccountTypes = () => {
         {
             text: 'Actions',
             cell: (item) => (
-                <button onClick={() => navigate(`/edit-trading-account-type/${item.id}`)}>Edit</button>
+                <button onClick={() => navigate(`${process.env.REACT_APP_BASE_URL}edit-trading-account-type/${item.id}`)}>Edit</button>
             )
         },
     ]
@@ -100,7 +100,7 @@ const TradingAccountTypes = () => {
             <DashboardHeader heading="Trading Account Types" />
             <div className='main'>
                 <div className='d-flex justify-content-end mb-3'>
-                    <button className='btn btn-primary' onClick={() => navigate('/add-trading-account-type')}>Add Trading account type</button>
+                    <button className='btn btn-primary' onClick={() => navigate(`${process.env.REACT_APP_BASE_URL}add-trading-account-type`)}>Add Trading account type</button>
                 </div>
                 <div className='customer-table'>
                     <div className='data-table-wrapped'>

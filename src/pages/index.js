@@ -29,6 +29,26 @@ export { default as TradingAccountTypes } from "./tradingAccountTypes/index";
 
 export { default as TradingAccountTypeForm } from "./tradingAccountTypes/tradingAccountTypes";
 
+export { default as Roles } from "./roles/index";
+export { default as RolesForm } from "./roles/roles";
+
+export { default as Permissions } from "./permissions/index";
+export { default as PermissionsForm } from "./permissions/permissions";
+
+export { default as PaymentTypes } from "./paymentTypes/index";
+export { default as PaymentTypesForm } from "./paymentTypes/paymentTypes";
+
+export { default as TwoPhases } from "./twoPhases/index";
+export { default as TwoPhasesForm } from "./twoPhases/twoPhases";
+
+export { default as InstantFunding } from "./instantFunding/index";
+export { default as InstantFundingForm } from "./instantFunding/instantFunding";
+
+export { default as AddOns } from "./addOns/index";
+export { default as AddOnsForm } from "./addOns/addOns";
+
+export { default as CouponCodes } from "./couponCode/index";
+export { default as CouponCodesForm } from "./couponCode/couponCode";
 
 
 

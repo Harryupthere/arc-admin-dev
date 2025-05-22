@@ -4,18 +4,19 @@ import { Login } from "../pages";
 import RouteArr from "../configuration/getRoutes";
 import Main from "../pages/main";
 
+const baseUrl=process.env.REACT_APP_BASE_URL || '/admin/' // why I am getting undified here ?
 const router = createBrowserRouter([
   {
     name: "Login",
-    path: "/login",
+    path: `${baseUrl}login`,
     key: "login",
-    route: "/",
+    route: `${baseUrl}`,
     element: <Login />,
   },
 
 
   {
-    path: "/",
+    path: `${baseUrl}`,
     element: <Main />,
     children: RouteArr,
   },

@@ -33,7 +33,7 @@ const LoginForm = () => {
 
                 dispatch(isloginSuccess());
                 successMsg(loginRes?.message)
-                navigate("/")
+                navigate(`${process.env.REACT_APP_BASE_URL}`)
             } else {
                 errorMsg(loginRes?.message)
             }

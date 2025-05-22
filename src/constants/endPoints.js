@@ -2,12 +2,42 @@ export const API_ENDPOINTS = {
     // auth
     login: '/login',
     getAdmin: '/get-admins',
-    getTrades:"/trade",
-    updateTrade:"/trade",
-    createTrade:"/trade",
-    getTradingAccountTypes:'/trading-account-types',
-    updateTradingAccountType:"/trading-account-type",
-    createTradingAccountType:"/trading-account-type",
+    getTrades: "/trade",
+    updateTrade: "/trade",
+    createTrade: "/trade",
+    getTradingAccountTypes: '/trading-account-types',
+    updateTradingAccountType: "/trading-account-type",
+    createTradingAccountType: "/trading-account-type",
+
+    getRoles: '/role/get-roles',
+    getPermissions: '/role/get-permissions',
+    getRolePermisson: '/get-roles-permissions',
+    createRole: '/role/create-role',
+    updateRole: '/role/update-role',
+    createPermisson: '/role/create-permission',
+    updatePermission: '/role/update-permission',
+
+    getPaymentTypes: '/payment-types',
+    getPaymentType: '/payment-type',
+    createPaymentType: '/payment-type',
+    updatePaymentType: '/payment-type',
+
+    getTwoPhasesPlans: '/two-phases',
+    createTwoPhasesPlan: '/two-phases/create-plan',
+    updateTwoPhasesPlans: '/two-phases/update-plan',
+
+    getInstantFundingPlans: '/instant',
+    createInstantFundingPlans: '/instant/create-plan',
+    updateInstantFundingPlans: '/instant/update-plan',
+
+    getAddOns: '/add-ons',
+    createAddOns: '/add-ons',
+    updateAddOns: '/add-ons',
+
+    getCouponCodes: '/coupon-code',
+    createCouponCodes: '/coupon-code',
+    updateCouponCodes: '/coupon-code',
+
     send_resetOtp: '/forgotpasword',
     verify_resetOtp: '/verifyotp',
     resetPassword: '/reset-password',
